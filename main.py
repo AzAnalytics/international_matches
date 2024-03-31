@@ -121,6 +121,7 @@ plt.title('Boxplot des Scores à Domicile et à l\'Extérieur')
 # Affichage de la figure dans Streamlit
 st.pyplot(plt)
 
+
 def get_last_10_matches_stats(team, df):
     # Séparation des matchs à domicile et à l'extérieur
     home_matches = df[df['home_team'] == team].tail(10)
@@ -143,9 +144,9 @@ def predict_match_result(home_team, away_team, df):
 
     # Logique de prédiction (simplifiée pour cet exemple)
     # Ici, vous pourriez ajouter votre logique personnalisée basée sur les statistiques
-    if home_stats[0] - away_stats[3] > away_stats[1] - home_stats[2]:
+    if home_stats[0] > away_stats[1]:
         return f"Victoire de {home_team}"
-    elif home_stats[0] - away_stats[3] < away_stats[1] - home_stats[2]:
+    elif home_stats[0] < away_stats[1]:
         return f"Victoire de {away_team}"
     else:
         return "Match nul"
